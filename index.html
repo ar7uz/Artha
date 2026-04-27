@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Artha Mind · Body · Soul — Tashkent's premium yoga &amp; wellness centre on Mukimiy Drive. Yoga, sound therapy, vocal &amp; dance therapy, vegetarian café, treatment rooms." />
+<meta name="theme-color" content="#efe9de" />
+<title>Artha — Mind · Body · Soul · Wellness Centre, Tashkent</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Sora:wght@300;400;500;600;700&family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* Breath & Practice palette */
+    --plaster:#efe9de;
+    --plaster-2:#e6dccb;
+    --plaster-3:#d8cdb6;
+    --line:#cabe9e;
+    --line-2:#a8997a;
+    --ink:#1f1a14;
+    --slate:#4a4239;
+    --slate-2:#6e6457;
+    --muted:#8d8478;
+    --rose:#b8736e;
+    --rose-deep:#8a4f4b;
+    --clay:#c4856b;
+    --sage:#9aa394;
+    --sage-deep:#5e6b5a;
+    /* Radii — soft wellness */
+    --r-sm:10px;
+    --r-md:16px;
+    --r-lg:22px;
+    --r-xl:32px;
+    --maxw:1280px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Sora',system-ui,-apple-system,sans-serif;
+    color:var(--ink);background:var(--plaster);
+    line-height:1.6;font-weight:400;font-size:15px;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+
+  .display{font-family:'Lora',Georgia,serif;font-weight:400;letter-spacing:-.005em;line-height:1.05}
+  .label{font-family:'Fira Mono',monospace;font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .mono{font-family:'Fira Mono',monospace;font-feature-settings:"tnum"}
+
+  .progress-bar{
+    position:fixed;top:0;left:0;height:2px;width:100%;
+    background:var(--rose-deep);transform:scaleX(0);transform-origin:left;
+    z-index:200;
+  }
+
+  /* NAV */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(239,233,222,.92);
+    backdrop-filter:saturate(140%) blur(14px);
+    border-bottom:1px solid var(--line);
+    transition:background .4s ease, border-color .4s ease, color .4s ease;
+  }
+  .nav.dark{
+    background:rgba(31,26,20,.92);
+    border-bottom:1px solid rgba(239,233,222,.12);
+    color:var(--plaster);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:18px}
+  .brand{display:flex;align-items:center;gap:12px;color:var(--ink)}
+  .nav.dark .brand{color:var(--plaster)}
+  .brand-glyph{
+    width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;
+    background:var(--rose-deep);color:var(--plaster);
+    font-family:'Lora',serif;font-style:italic;font-weight:500;font-size:18px;
+    border-radius:50%;flex-shrink:0;
+  }
+  .brand-text{font-family:'Lora',serif;font-size:22px;letter-spacing:-.005em;font-weight:500}
+  .brand-text small{
+    font-family:'Fira Mono',monospace;font-weight:400;font-size:9px;
+    letter-spacing:.2em;color:var(--muted);
+    display:block;margin-top:-2px;text-transform:uppercase;
+  }
+  .nav.dark .brand-text small{color:var(--plaster);opacity:.55}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a:not(.nav-cta){
+    font-size:13px;font-weight:400;color:var(--slate);transition:color .18s;
+    font-family:'Sora',sans-serif;
+  }
+  .nav.dark .nav-links a:not(.nav-cta){color:var(--plaster);opacity:.85}
+  .nav-links a:not(.nav-cta):hover{color:var(--rose-deep)}
+  .nav.dark .nav-links a:not(.nav-cta):hover{color:var(--clay);opacity:1}
+  .nav-cta{
+    padding:11px 22px;background:var(--rose-deep);color:var(--plaster)!important;
+    font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    border-radius:999px;
+    transition:background .18s, transform .18s;
+    font-family:'Sora',sans-serif;
+  }
+  .nav-cta:hover{background:var(--ink);transform:translateY(-1px)}
+
+  .lang-switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;background:rgba(239,233,222,.6)}
+  .nav.dark .lang-switch{border-color:rgba(239,233,222,.18);background:rgba(239,233,222,.06)}
+  .lang-switch button{
+    padding:7px 11px;background:transparent;border:0;
+    color:var(--muted);font-family:'Fira Mono',monospace;
+    font-size:10px;font-weight:400;letter-spacing:.16em;cursor:pointer;
+    transition:background .15s, color .15s;text-transform:uppercase;line-height:1;border-radius:999px;
+  }
+  .nav.dark .lang-switch button{color:var(--plaster);opacity:.6}
+  .lang-switch button:hover:not(.active){color:var(--rose-deep);opacity:1}
+  .lang-switch button.active{background:var(--rose-deep);color:var(--plaster);opacity:1}
+
+  .menu-btn{display:none;background:none;border:0;color:inherit;font-size:22px;cursor:pointer}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 28px;border-radius:999px;
+    font-family:'Sora',sans-serif;
+    font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    border:1px solid var(--ink);background:var(--ink);color:var(--plaster);
+    transition:background .2s, border-color .2s, color .2s;
+    cursor:pointer;will-change:transform;min-height:44px;
+  }
+  .btn:hover{background:var(--rose-deep);border-color:var(--rose-deep);color:var(--plaster)}
+  .btn:focus-visible{outline:2px solid var(--clay);outline-offset:3px}
+  .btn-rose{background:var(--rose-deep);border-color:var(--rose-deep);color:var(--plaster)}
+  .btn-rose:hover{background:var(--ink);border-color:var(--ink)}
+  .btn-clay{background:var(--clay);border-color:var(--clay);color:var(--ink)}
+  .btn-clay:hover{background:var(--ink);border-color:var(--ink);color:var(--plaster)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+  .btn-ghost:hover{background:var(--ink);color:var(--plaster);border-color:var(--ink)}
+  .btn-ghost-dark{background:transparent;color:var(--plaster);border-color:rgba(239,233,222,.32)}
+  .btn-ghost-dark:hover{background:var(--plaster);color:var(--ink);border-color:var(--plaster)}
+  .btn svg{width:13px;height:13px}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:100vh;
+    background:var(--plaster);color:var(--ink);
+    overflow:hidden;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:130px 0 100px;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:radial-gradient(circle at 1px 1px, rgba(31,26,20,.04) 1px, transparent 0);
+    background-size:32px 32px;
+  }
+  .hero::after{
+    content:"";position:absolute;top:0;right:0;width:55%;height:70%;pointer-events:none;
+    background:radial-gradient(circle at 70% 30%, rgba(184,115,110,.16) 0%, transparent 65%);
+  }
+
+  /* Breath ring ornament */
+  .hero-orn{
+    position:absolute;top:50%;right:6%;transform:translateY(-50%);
+    width:340px;height:340px;color:var(--rose);opacity:.42;pointer-events:none;will-change:transform;z-index:1;
+  }
+  .hero-orn svg{width:100%;height:100%}
+  .hero-orn .ring{transform-origin:50% 50%}
+  .hero-orn .ring1{animation:breathe 8s ease-in-out infinite}
+  .hero-orn .ring2{animation:breathe 8s ease-in-out infinite .8s}
+  .hero-orn .ring3{animation:breathe 8s ease-in-out infinite 1.6s}
+  .hero-orn .ring4{animation:breathe 8s ease-in-out infinite 2.4s}
+  @keyframes breathe{
+    0%,100%{transform:scale(.92);opacity:.4}
+    50%{transform:scale(1.04);opacity:.85}
+  }
+
+  /* Floating meta tags */
+  .hero-tag{
+    position:absolute;font-family:'Fira Mono',monospace;font-size:10px;
+    color:var(--slate-2);letter-spacing:.1em;pointer-events:none;will-change:transform;z-index:1;opacity:.7;
+  }
+  .hero-tag:nth-child(1){top:14%;left:5%}
+  .hero-tag:nth-child(2){top:80%;left:8%}
+  .hero-tag:nth-child(3){top:30%;right:38%}
+  .hero-tag:nth-child(4){bottom:18%;right:6%}
+
+  .hero-grid{position:relative;z-index:3;display:grid;grid-template-columns:1fr;gap:0}
+
+  .hero-eyebrow-row{display:flex;align-items:center;gap:18px;margin-bottom:42px;flex-wrap:wrap}
+  .hero-eyebrow-row .ehd{flex:1;height:1px;background:var(--line);max-width:160px}
+  .hero-eyebrow-row .label{margin:0;color:var(--rose-deep)}
+  .hero-eyebrow-row .corner{font-family:'Fira Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase}
+
+  .hero-title{
+    font-family:'Lora',serif;
+    font-size:clamp(46px,6.8vw,104px);
+    line-height:1.04;letter-spacing:-.018em;font-weight:400;
+    color:var(--ink);margin-bottom:36px;max-width:1080px;
+  }
+  .hero-title em{font-family:'Lora',serif;font-style:italic;color:var(--rose-deep);font-weight:400}
+  .hero-title .ch{display:inline-block;will-change:transform,opacity}
+
+  .hero-bottom{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:end;margin-top:32px}
+  .hero-lede{font-size:16px;color:var(--slate);line-height:1.7;max-width:540px}
+  .hero-lede em{font-style:italic;color:var(--rose-deep);font-family:'Lora',serif;font-size:1.06em}
+
+  .hero-stats-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .hstat{padding:24px 20px 24px 0;border-right:1px solid var(--line)}
+  .hstat:last-child{border-right:0}
+  .hstat:nth-child(n+2){padding-left:24px}
+  .hstat .n{font-family:'Lora',serif;font-size:42px;color:var(--ink);line-height:1;font-weight:400;letter-spacing:-.02em;display:block}
+  .hstat .n em{font-style:italic;color:var(--rose-deep);font-size:28px;vertical-align:top}
+  .hstat .l{font-family:'Fira Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-top:8px;display:block}
+
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+  .hero-cta .badge{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 18px;background:var(--plaster-2);border:1px solid var(--line);border-radius:999px;
+    font-family:'Fira Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate);
+  }
+  .hero-cta .badge svg{width:14px;height:14px;color:var(--rose-deep);flex-shrink:0}
+  .hero-cta .badge .star{color:var(--rose-deep);font-weight:700}
+
+  /* Marquee */
+  .marquee-section{
+    background:var(--ink);color:var(--plaster);
+    padding:44px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+    overflow:hidden;
+  }
+  .marquee-wrap{
+    overflow:hidden;width:100%;
+    mask-image:linear-gradient(90deg,transparent,black 6%,black 94%,transparent);
+    -webkit-mask-image:linear-gradient(90deg,transparent,black 6%,black 94%,transparent);
+  }
+  .marquee-track{
+    display:inline-flex;gap:48px;white-space:nowrap;will-change:transform;
+    font-family:'Lora',serif;font-style:italic;
+    font-size:clamp(36px,5.4vw,80px);
+    line-height:1;letter-spacing:-.012em;color:var(--plaster);font-weight:500;
+    align-items:center;
+  }
+  .marquee-track span{display:inline-flex;align-items:center;gap:48px}
+  .marquee-track em{color:var(--clay);font-style:italic}
+  .marquee-track .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--clay);flex-shrink:0}
+
+  /* SECTIONS */
+  section{padding:120px 0;position:relative}
+  .section-head{margin-bottom:72px;display:grid;grid-template-columns:1fr 2fr;gap:56px;align-items:end}
+  .section-head .left{display:flex;flex-direction:column;gap:8px}
+  .section-head .left .num{font-family:'Fira Mono',monospace;font-size:11px;color:var(--rose-deep);letter-spacing:.18em;text-transform:uppercase}
+  .section-head .left::before{content:"";display:block;width:36px;height:1px;background:var(--rose-deep);margin-bottom:14px}
+  .section-head h2{
+    font-family:'Lora',serif;
+    font-size:clamp(32px,4.2vw,58px);
+    line-height:1.04;letter-spacing:-.015em;font-weight:400;color:var(--ink);
+  }
+  .section-head h2 em{font-style:italic;color:var(--rose-deep)}
+  .section-head .intro{margin-top:24px;color:var(--slate);font-size:15px;line-height:1.7;max-width:580px}
+
+  /* STORY */
+  .story{background:var(--plaster);padding-bottom:140px}
+  .story-grid{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
+  .story-sticky{position:sticky;top:110px}
+  .story-num{
+    font-family:'Lora',serif;
+    font-size:clamp(72px,10vw,144px);
+    line-height:.86;color:var(--ink);font-weight:400;letter-spacing:-.035em;display:block;
+  }
+  .story-num em{font-style:italic;color:var(--rose-deep);font-size:.5em;vertical-align:top}
+  .story-num-label{font-family:'Fira Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:14px;display:block}
+  .story-meta{margin-top:32px;border-top:1px solid var(--line);padding-top:24px;display:flex;flex-direction:column;gap:14px}
+  .story-meta .row{display:flex;justify-content:space-between;gap:12px;font-size:13px}
+  .story-meta .row .k{font-family:'Fira Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .story-meta .row .v{color:var(--ink);text-align:right;font-weight:600}
+
+  .story-text{display:flex;flex-direction:column;gap:28px}
+  .story-text p{font-family:'Lora',serif;font-size:clamp(18px,1.7vw,23px);line-height:1.5;color:var(--ink);font-weight:400;letter-spacing:-.003em}
+  .story-text p em{font-style:italic;color:var(--rose-deep)}
+  .story-text p .q{font-style:italic;color:var(--clay);font-family:'Lora',serif}
+  .story-text .line{height:1px;background:var(--line);margin:6px 0}
+
+  /* PRACTICES — bento */
+  .practices{background:var(--plaster-2)}
+  .pr-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:auto auto;gap:18px}
+  .pr{
+    background:var(--plaster);border:1px solid var(--line);border-radius:var(--r-md);
+    padding:36px 32px 30px;
+    display:flex;flex-direction:column;gap:14px;
+    position:relative;overflow:hidden;
+    transition:border-color .25s ease;
+    will-change:transform;transform-style:preserve-3d;perspective:1200px;
+  }
+  .pr-hero{
+    grid-row:span 2;background:var(--ink);color:var(--plaster);border-color:var(--ink);
+    padding:48px 40px 40px;
+    display:flex;flex-direction:column;justify-content:space-between;min-height:480px;
+  }
+  .pr-hero::before{
+    content:"";position:absolute;top:-100px;right:-100px;width:280px;height:280px;border-radius:50%;
+    background:radial-gradient(circle,rgba(184,115,110,.34) 0%,transparent 70%);pointer-events:none;
+  }
+  .pr:hover{border-color:var(--rose-deep)}
+  .pr .num{font-family:'Fira Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose-deep)}
+  .pr-hero .num{color:var(--clay)}
+  .pr .meta-row{display:flex;gap:14px;font-family:'Fira Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;flex-wrap:wrap}
+  .pr-hero .meta-row{color:rgba(239,233,222,.62)}
+  .pr h3{font-family:'Lora',serif;font-weight:400;letter-spacing:-.015em;line-height:1.04;margin-top:6px}
+  .pr h3 em{font-style:italic;color:var(--rose-deep)}
+  .pr-hero h3{font-size:clamp(36px,4vw,52px);color:var(--plaster)}
+  .pr-hero h3 em{color:var(--clay)}
+  .pr:not(.pr-hero) h3{font-size:clamp(22px,2.2vw,28px);color:var(--ink)}
+
+  .pr .lede{font-size:13px;line-height:1.65;color:var(--slate);max-width:420px}
+  .pr-hero .lede{font-size:15px;color:rgba(239,233,222,.82);max-width:480px}
+
+  .pr-items{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+  .pr-items li{
+    list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:baseline;
+    font-size:13px;color:var(--ink);
+    border-bottom:1px dotted var(--line);padding-bottom:6px;
+  }
+  .pr-hero .pr-items li{color:var(--plaster);border-bottom-color:rgba(239,233,222,.18)}
+  .pr-items li .name{flex:1}
+  .pr-items li .price{font-family:'Fira Mono',monospace;font-size:11px;color:var(--rose-deep);font-weight:500;letter-spacing:.04em;flex-shrink:0;font-variant-numeric:tabular-nums}
+  .pr-hero .pr-items li .price{color:var(--clay)}
+
+  .pr-foot{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);display:flex;align-items:baseline;justify-content:space-between;gap:14px}
+  .pr-hero .pr-foot{border-color:rgba(239,233,222,.18)}
+  .pr-foot .from{font-family:'Lora',serif;font-size:16px;font-style:italic;color:var(--rose-deep);font-weight:500}
+  .pr-hero .pr-foot .from{color:var(--clay)}
+  .pr-foot a{font-family:'Fira Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;color:var(--ink);transition:gap .2s, color .2s}
+  .pr-hero .pr-foot a{color:var(--plaster)}
+  .pr-foot a:hover{gap:10px;color:var(--rose-deep)}
+  .pr-hero .pr-foot a:hover{color:var(--clay)}
+  .pr-foot a svg{width:11px;height:11px}
+
+  /* SCHEDULE */
+  .schedule{background:var(--ink);color:var(--plaster);padding:140px 0;position:relative;overflow:hidden}
+  .schedule::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;
+    background-image:repeating-linear-gradient(0deg,transparent 0,transparent 60px,rgba(239,233,222,.4) 60px,rgba(239,233,222,.4) 61px),repeating-linear-gradient(90deg,transparent 0,transparent 60px,rgba(239,233,222,.4) 60px,rgba(239,233,222,.4) 61px);
+  }
+  .sched-inner{position:relative;display:grid;grid-template-columns:1fr 1.6fr;gap:80px;align-items:start}
+  .sched-side .label{color:var(--clay)}
+  .sched-side h2{font-family:'Lora',serif;font-size:clamp(32px,4.2vw,56px);line-height:1.04;letter-spacing:-.015em;font-weight:400;color:var(--plaster);margin-top:14px}
+  .sched-side h2 em{font-style:italic;color:var(--clay)}
+  .sched-side p{margin-top:20px;color:var(--plaster-2);opacity:.8;font-size:15px;line-height:1.7;max-width:480px}
+  .sched-quote{
+    margin-top:32px;padding:20px 0;border-top:1px solid rgba(239,233,222,.18);
+    font-family:'Lora',serif;font-style:italic;font-size:18px;line-height:1.5;color:var(--plaster);max-width:480px;
+  }
+  .sched-quote::before{content:"\201C ";color:var(--clay)}
+  .sched-quote::after{content:" \201D";color:var(--clay)}
+
+  .sched-table{
+    background:rgba(239,233,222,.04);border:1px solid rgba(239,233,222,.16);border-radius:var(--r-md);overflow:hidden;
+  }
+  .sched-row{
+    display:grid;grid-template-columns:96px 1fr 90px;gap:18px;
+    padding:18px 24px;border-bottom:1px solid rgba(239,233,222,.12);
+    align-items:center;transition:background .2s;
+  }
+  .sched-row:last-child{border-bottom:0}
+  .sched-row:hover{background:rgba(239,233,222,.05)}
+  .sched-row .time{font-family:'Fira Mono',monospace;font-size:14px;color:var(--clay);font-weight:500;letter-spacing:.04em}
+  .sched-row .item{font-family:'Lora',serif;font-size:18px;color:var(--plaster);font-weight:400;letter-spacing:-.005em}
+  .sched-row .item em{font-style:italic;color:var(--clay)}
+  .sched-row .item small{display:block;font-family:'Sora',sans-serif;font-size:12px;color:var(--plaster-2);opacity:.6;margin-top:2px;font-style:normal;font-weight:400}
+  .sched-row .who{font-family:'Fira Mono',monospace;font-size:11px;color:var(--plaster-2);opacity:.78;letter-spacing:.06em;text-align:right}
+
+  /* MAP — studio rooms layout */
+  .map-section{background:var(--plaster)}
+  .map-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+  .room{
+    background:var(--plaster);padding:28px 24px;
+    display:flex;flex-direction:column;gap:8px;
+    transition:background .25s ease;
+    min-height:160px;
+  }
+  .room:hover{background:var(--plaster-2)}
+  .room .num{font-family:'Fira Mono',monospace;font-size:10px;color:var(--rose-deep);letter-spacing:.16em;text-transform:uppercase}
+  .room .name{font-family:'Lora',serif;font-size:22px;color:var(--ink);font-weight:500;letter-spacing:-.005em;line-height:1.1;margin-top:4px}
+  .room .name em{font-style:italic;color:var(--rose-deep)}
+  .room .desc{font-size:13px;color:var(--slate);line-height:1.55;margin-top:4px}
+  .room .cap{font-family:'Fira Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.06em;margin-top:auto;padding-top:8px}
+
+  /* VISIT */
+  .visit{background:var(--plaster-2)}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+  .visit-info{border-top:1px solid var(--line)}
+  .info-row{display:grid;grid-template-columns:140px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  .info-row .lab{font-family:'Fira Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .info-row .val{font-size:14px;color:var(--ink);line-height:1.55}
+  .info-row a.val{color:var(--rose-deep)}
+  .info-row a.val:hover{text-decoration:underline}
+  .info-row .val.large{font-family:'Lora',serif;font-size:21px;font-weight:500;letter-spacing:-.005em;line-height:1.15;color:var(--ink)}
+
+  .visit-card{
+    background:var(--ink);color:var(--plaster);
+    border-radius:var(--r-md);padding:48px 40px;
+    display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden;
+  }
+  .visit-card::before{
+    content:"";position:absolute;top:-100px;right:-100px;width:280px;height:280px;border-radius:50%;
+    background:radial-gradient(circle,rgba(184,115,110,.36) 0%,transparent 70%);pointer-events:none;
+  }
+  .visit-card .label{margin-bottom:6px;color:var(--clay);position:relative}
+  .visit-card h3{font-family:'Lora',serif;font-size:clamp(24px,2.4vw,34px);color:var(--plaster);font-weight:400;line-height:1.1;letter-spacing:-.01em;position:relative}
+  .visit-card h3 em{font-style:italic;color:var(--clay)}
+  .visit-card p{color:rgba(239,233,222,.78);font-size:14px;line-height:1.65;position:relative}
+  .visit-card .magnetic-wrap{align-self:flex-start;position:relative}
+  .visit-card .qrow{display:flex;gap:32px;padding-top:24px;border-top:1px solid rgba(239,233,222,.18);margin-top:auto;position:relative}
+  .visit-card .qrow .qb{font-family:'Lora',serif;font-size:26px;color:var(--clay);font-weight:400;line-height:1;letter-spacing:-.01em}
+  .visit-card .qrow .qbl{font-family:'Fira Mono',monospace;font-size:10px;color:var(--plaster-2);opacity:.7;letter-spacing:.14em;text-transform:uppercase;font-weight:400;margin-top:6px;display:block}
+
+  /* FINAL */
+  .final-cta{
+    background:var(--rose-deep);color:var(--plaster);
+    padding:140px 0;text-align:center;position:relative;overflow:hidden;
+    min-height:70vh;display:flex;align-items:center;
+  }
+  .final-cta::before{
+    content:"";position:absolute;top:-300px;left:50%;transform:translateX(-50%);
+    width:900px;height:900px;border-radius:50%;
+    background:radial-gradient(circle,rgba(196,133,107,.28) 0%,transparent 70%);pointer-events:none;
+  }
+  .final-cta .container{position:relative;z-index:2}
+  .final-cta .label{color:var(--clay);margin-bottom:18px;display:inline-block}
+  .final-cta h2{font-family:'Lora',serif;font-size:clamp(36px,5.4vw,84px);line-height:1;letter-spacing:-.022em;font-weight:400;margin:0 auto 28px;color:var(--plaster);max-width:1000px}
+  .final-cta h2 em{font-style:italic;color:var(--clay)}
+  .final-cta p{color:rgba(239,233,222,.85);font-size:16px;max-width:560px;margin:0 auto 40px;line-height:1.7}
+  .final-cta .hero-cta{justify-content:center;margin-top:0}
+  .final-cta .btn{background:var(--plaster);color:var(--ink);border-color:var(--plaster)}
+  .final-cta .btn:hover{background:var(--clay);color:var(--ink);border-color:var(--clay)}
+
+  /* WORDMARK */
+  .wordmark-section{background:var(--ink);color:var(--plaster);padding:48px 0 0;border-top:1px solid rgba(239,233,222,.12)}
+  .wordmark{
+    font-family:'Lora',serif;
+    font-size:clamp(72px,15vw,196px);
+    line-height:.86;letter-spacing:-.025em;font-weight:400;
+    color:var(--plaster);text-align:center;margin-top:20px;margin-bottom:-10px;overflow:hidden;
+  }
+  .wordmark em{font-style:italic;color:var(--clay)}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:var(--plaster);padding:48px 0 30px;border-top:1px solid rgba(239,233,222,.1)}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+  .foot-col h4{font-family:'Fira Mono',monospace;font-size:10px;color:var(--plaster-2);letter-spacing:.18em;margin-bottom:18px;font-weight:400;text-transform:uppercase;opacity:.7}
+  .foot-col a, .foot-col p{color:var(--plaster-2);opacity:.65;font-size:13px;margin-bottom:8px;display:block;transition:color .2s, opacity .2s;line-height:1.7}
+  .foot-col a:hover{color:var(--clay);opacity:1}
+  .foot-bottom{border-top:1px solid rgba(239,233,222,.1);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;color:var(--muted);font-family:'Fira Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:400}
+
+  /* Responsive */
+  @media (max-width:1080px){
+    .nav-links{gap:20px}
+    .pr-grid{grid-template-columns:1fr 1fr}
+    .pr-hero{grid-column:span 2;grid-row:span 1;min-height:auto}
+    .map-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:960px){
+    .container{padding:0 22px}
+    .hero-bottom{grid-template-columns:1fr;gap:36px}
+    .hero-orn{width:200px;height:200px;right:-40px;opacity:.3}
+    .section-head{grid-template-columns:1fr;gap:18px}
+    .story-grid{grid-template-columns:1fr;gap:40px}
+    .story-sticky{position:static}
+    .pr-grid{grid-template-columns:1fr}
+    .pr-hero{grid-column:auto}
+    .sched-inner{grid-template-columns:1fr;gap:48px}
+    .visit-grid{grid-template-columns:1fr;gap:40px}
+    .map-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+    .nav-links{display:none}
+    .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:flex-start;background:var(--plaster);padding:24px;gap:18px;border-bottom:1px solid var(--line)}
+    .nav.dark .nav-links.open{background:var(--ink);border-bottom:1px solid rgba(239,233,222,.12)}
+    .menu-btn{display:block}
+    section{padding:80px 0}
+    .hero{padding:120px 0 60px}
+    .schedule{padding:90px 0}
+  }
+  @media (max-width:560px){
+    .info-row{grid-template-columns:1fr;gap:6px}
+    .visit-card{padding:32px 24px}
+    .pr-hero{padding:36px 26px}
+    .hero-stats-strip{grid-template-columns:1fr}
+    .hstat{border-right:0;border-bottom:1px solid var(--line);padding:18px 0}
+    .hstat:last-child{border-bottom:0}
+    .hstat:nth-child(n+2){padding-left:0}
+    .hero-tag,.hero-orn{display:none}
+    .sched-row{grid-template-columns:80px 1fr;gap:14px}
+    .sched-row .who{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .marquee-track,.hero-orn .ring{animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-glyph">A</span>
+      <span class="brand-text">Artha<small data-i18n="brand.sub">Tashkent · Mind · Body · Soul</small></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#story" data-i18n="nav.story">Studio</a>
+      <a href="#practices" data-i18n="nav.pract">Practices</a>
+      <a href="#schedule" data-i18n="nav.sched">Schedule</a>
+      <a href="#map" data-i18n="nav.map">The space</a>
+      <a href="#visit" data-i18n="nav.visit">Visit</a>
+
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="ru">RU</button>
+        <button type="button" data-lang="uz">UZ</button>
+      </div>
+
+      <a href="tel:+998900669911" class="nav-cta" data-i18n="nav.cta">Book a class</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <span class="hero-tag mono">41.31°N · 69.27°E</span>
+  <span class="hero-tag mono">EST · 2017</span>
+  <span class="hero-tag mono">YAKKASARAY · MUKIMIY 8A</span>
+  <span class="hero-tag mono">★ 5,0 / 447 · YANDEX</span>
+
+  <div class="hero-orn" id="heroOrn" aria-hidden="true">
+    <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+      <circle class="ring ring1" cx="100" cy="100" r="92" opacity=".5"/>
+      <circle class="ring ring2" cx="100" cy="100" r="72" opacity=".62"/>
+      <circle class="ring ring3" cx="100" cy="100" r="52" opacity=".75"/>
+      <circle class="ring ring4" cx="100" cy="100" r="32" opacity=".88"/>
+      <circle cx="100" cy="100" r="3" fill="currentColor" opacity=".95"/>
+    </svg>
+  </div>
+
+  <div class="container hero-grid">
+    <div class="hero-eyebrow-row" data-anim="fade">
+      <span class="label" data-i18n="hero.eyebrow">Yoga · meditation · sound · café · since 2017</span>
+      <span class="ehd"></span>
+      <span class="corner mono">N° 9 · MMXXVI</span>
+    </div>
+
+    <h1 class="hero-title" data-anim="title" data-i18n-html="hero.title">Eight years. <em>Six practices.</em><br/>One quiet room on Mukimiy.</h1>
+
+    <div class="hero-bottom">
+      <div>
+        <p class="hero-lede" data-anim="fade" data-i18n-html="hero.lede">Artha is a holistic wellness centre in Tashkent's Yakkasaray district — yoga, meditation, sound therapy, vocal and dance therapy, a small vegetarian café, treatment rooms and a mind-body shop, all under one warm-plaster roof. <em>Five hundred people a month walk in here, calm down, and walk back out.</em></p>
+
+        <div class="hero-cta" data-anim="fade">
+          <a href="tel:+998900669911" class="btn btn-rose">
+            <span data-i18n="hero.cta1">Book a class</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <span class="badge">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.5 8.5 L21.5 9 L16 13.5 L17.5 20.5 L12 16.5 L6.5 20.5 L8 13.5 L2.5 9 L9.5 8.5 Z"/></svg>
+            <span><span class="star">5,0</span> · 447 · Yandex</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="hero-stats-strip" data-anim="fade">
+        <div class="hstat">
+          <span class="n" data-counter="8" data-suffix="">8</span>
+          <span class="l" data-i18n="hero.stat1">Years of practice</span>
+        </div>
+        <div class="hstat">
+          <span class="n" data-counter="447" data-suffix="">447</span>
+          <span class="l" data-i18n="hero.stat2">Reviews · 5,0★</span>
+        </div>
+        <div class="hstat">
+          <span class="n">6</span>
+          <span class="l" data-i18n="hero.stat3">Practice rooms</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="marquee-section" aria-hidden="true">
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marqueeTrack">
+      <span data-i18n-html="marquee.line">Hatha <em>·</em> Vinyasa <em>·</em> Yin <em>·</em> Sound bath <em>·</em> Meditation <em>·</em> Vocal <em>·</em> Dance therapy <em>·</em> Pilates <em>·</em></span>
+      <span data-i18n-html="marquee.line">Hatha <em>·</em> Vinyasa <em>·</em> Yin <em>·</em> Sound bath <em>·</em> Meditation <em>·</em> Vocal <em>·</em> Dance therapy <em>·</em> Pilates <em>·</em></span>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="container">
+    <div class="section-head" data-anim="fade">
+      <div class="left">
+        <span class="num">— I</span>
+        <span class="label" data-i18n="story.eyebrow">The studio</span>
+      </div>
+      <div>
+        <h2 data-i18n-html="story.title">Opened in 2017. <em>Run by the same teachers, still.</em></h2>
+        <p class="intro" data-i18n="story.intro">Artha was founded in 2017 by a small group of practitioners who wanted a quiet, modern, premium room in Tashkent for the practices they had been studying for years. Eight years on, the same teachers run the same rooms — and the queue at 19:00 on a Tuesday is the same queue.</p>
+      </div>
+    </div>
+
+    <div class="story-grid">
+      <aside class="story-sticky">
+        <div class="story-num" data-counter-big="8" data-suffix-big="+">8<em>+</em></div>
+        <span class="story-num-label" data-i18n="story.numLabel">Years · 6 rooms</span>
+        <div class="story-meta">
+          <div class="row"><span class="k" data-i18n="story.k1">Founded</span><span class="v">2017</span></div>
+          <div class="row"><span class="k" data-i18n="story.k2">Yandex</span><span class="v">5,0 · 447 reviews</span></div>
+          <div class="row"><span class="k" data-i18n="story.k3">Practices</span><span class="v">6 families</span></div>
+          <div class="row"><span class="k" data-i18n="story.k4">Café</span><span class="v">Vegetarian · open daily</span></div>
+          <div class="row"><span class="k" data-i18n="story.k5">Address</span><span class="v">Mukimiy 1st Dr 8A</span></div>
+        </div>
+      </aside>
+
+      <div class="story-text">
+        <p data-anim="line" data-i18n-html="story.l1">Artha is a quiet room. <em>That is the whole brief.</em></p>
+        <p data-anim="line" data-i18n="story.l2">We opened in 2017 in a single white-plaster room on Mukimiy 1st Drive — at the time, the only place in Yakkasaray where a serious yoga student could practise hatha at seven in the morning, sit a sound meditation in the same room at noon, and have a vegetarian lunch in the next room at one.</p>
+        <div class="line"></div>
+        <p data-anim="line" data-i18n-html="story.l3">Eight years later we are six rooms — a yoga shala, a meditation room, a sound chamber, a treatment room, a small vegetarian café, and a shop with the things the teachers actually use. <span class="q">Same plaster, same teachers, same patience.</span></p>
+        <p data-anim="line" data-i18n="story.l4">We do not sell quick wins. There is no thirty-day challenge, no ascension package, no metaphysical merchandise at the entrance. We sell a single, repeatable thing: <em>one hour, in a quiet warm room, with a teacher who knows what they are doing.</em></p>
+        <p data-anim="line" data-i18n="story.l5">Our students range from eighteen-year-old students who come at six in the morning before class to seventy-year-old grandmothers who come for slow hatha twice a week. The teachers are the same in both rooms.</p>
+        <div class="line"></div>
+        <p data-anim="line" data-i18n-html="story.l6">If you have practised before, the room will feel familiar. If you have not, <em>book the slow Hatha at eleven on a Saturday and we will take it from there.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="practices" id="practices">
+  <div class="container">
+    <div class="section-head" data-anim="fade">
+      <div class="left">
+        <span class="num">— II</span>
+        <span class="label" data-i18n="pract.eyebrow">The catalogue</span>
+      </div>
+      <div>
+        <h2 data-i18n-html="pract.title">Six practices, <em>one warm room.</em></h2>
+        <p class="intro" data-i18n="pract.intro">Yoga, meditation and sound, vocal and dance, a vegetarian café, treatment rooms, and a small shop. Six families that have been the spine of the studio since 2017 — refined every season by the teachers who run them.</p>
+      </div>
+    </div>
+
+    <div class="pr-grid">
+      <article class="pr pr-hero" data-tilt>
+        <div>
+          <span class="num">— Practice · 01 · the spine</span>
+          <div class="meta-row">
+            <span data-i18n="p1.meta1">Hatha · Vinyasa · Yin</span>
+            <span data-i18n="p1.meta2">7:00 — 21:00 daily</span>
+          </div>
+          <h3 data-i18n-html="p1.name">Yoga · <em>the practice.</em></h3>
+          <p class="lede" data-i18n="p1.lede">Hatha at seven, Vinyasa flow at noon, restorative Yin at sunset, slow Hatha for beginners on Saturday morning. Small classes, certified teachers who have practised for ten or more years, no rushing.</p>
+        </div>
+        <ul class="pr-items">
+          <li><span class="name" data-i18n="p1.i1">Drop-in single class</span><span class="price">120 000</span></li>
+          <li><span class="name" data-i18n="p1.i2">Pack of 8 classes · valid 30 days</span><span class="price">820 000</span></li>
+          <li><span class="name" data-i18n="p1.i3">Monthly unlimited</span><span class="price">1 480 000</span></li>
+          <li><span class="name" data-i18n="p1.i4">Private 1-to-1 · 60 min</span><span class="price">480 000</span></li>
+        </ul>
+        <div class="pr-foot">
+          <span class="from" data-i18n="p1.from">From 120 000 UZS</span>
+          <a href="tel:+998900669911">
+            <span data-i18n="pract.book">Book a class</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="pr" data-tilt>
+        <span class="num">— Practice · 02</span>
+        <div class="meta-row"><span data-i18n="p2.meta1">Group · 75 min</span></div>
+        <h3 data-i18n-html="p2.name"><em>Sound</em> &amp; meditation</h3>
+        <p class="lede" data-i18n="p2.lede">Singing-bowl baths, gong meditation, guided breathwork. In our dedicated sound chamber, weekly schedule.</p>
+        <ul class="pr-items">
+          <li><span class="name" data-i18n="p2.i1">Sound bath · group</span><span class="price">220 000</span></li>
+          <li><span class="name" data-i18n="p2.i2">Guided meditation · group</span><span class="price">140 000</span></li>
+          <li><span class="name" data-i18n="p2.i3">Private session · 60 min</span><span class="price">540 000</span></li>
+        </ul>
+        <div class="pr-foot">
+          <span class="from" data-i18n="p2.from">From 140 000 UZS</span>
+          <a href="tel:+998900669911"><span data-i18n="pract.book">Book a class</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="pr" data-tilt>
+        <span class="num">— Practice · 03</span>
+        <div class="meta-row"><span data-i18n="p3.meta1">Group · 60 min</span></div>
+        <h3 data-i18n="p3.name">Vocal · dance</h3>
+        <p class="lede" data-i18n="p3.lede">Vocal therapy and 5Rhythms-style movement classes. Open level, no experience needed, weekly.</p>
+        <ul class="pr-items">
+          <li><span class="name" data-i18n="p3.i1">Vocal therapy · group</span><span class="price">160 000</span></li>
+          <li><span class="name" data-i18n="p3.i2">Movement · group</span><span class="price">160 000</span></li>
+        </ul>
+        <div class="pr-foot">
+          <span class="from" data-i18n="p3.from">From 160 000 UZS</span>
+          <a href="tel:+998900669911"><span data-i18n="pract.book">Book a class</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="pr" data-tilt>
+        <span class="num">— Practice · 04</span>
+        <div class="meta-row"><span data-i18n="p4.meta1">Daily · 09:00 — 20:00</span></div>
+        <h3 data-i18n="p4.name">Vegetarian café</h3>
+        <p class="lede" data-i18n="p4.lede">Vegetarian, vegan and raw plates, herbal teas, small daily soup. Open whether or not you took a class — students get 10% off.</p>
+        <ul class="pr-items">
+          <li><span class="name" data-i18n="p4.i1">Plant lunch plate</span><span class="price">82 000</span></li>
+          <li><span class="name" data-i18n="p4.i2">Soup &amp; bread</span><span class="price">48 000</span></li>
+          <li><span class="name" data-i18n="p4.i3">Pot of herbal tea</span><span class="price">38 000</span></li>
+        </ul>
+        <div class="pr-foot">
+          <span class="from" data-i18n="p4.from">From 38 000 UZS</span>
+          <a href="tel:+998900669911"><span data-i18n="pract.book">Walk in</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="pr" data-tilt>
+        <span class="num">— Practice · 05</span>
+        <div class="meta-row"><span data-i18n="p5.meta1">By appointment</span></div>
+        <h3 data-i18n-html="p5.name">Treatment <em>room</em></h3>
+        <p class="lede" data-i18n="p5.lede">Therapeutic massage, Thai-style work, deep tissue. By the same therapist who has run the room since 2018.</p>
+        <ul class="pr-items">
+          <li><span class="name" data-i18n="p5.i1">Therapeutic · 60 min</span><span class="price">420 000</span></li>
+          <li><span class="name" data-i18n="p5.i2">Therapeutic · 90 min</span><span class="price">580 000</span></li>
+          <li><span class="name" data-i18n="p5.i3">Thai · 90 min</span><span class="price">640 000</span></li>
+        </ul>
+        <div class="pr-foot">
+          <span class="from" data-i18n="p5.from">From 420 000 UZS</span>
+          <a href="tel:+998900669911"><span data-i18n="pract.book">Book</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="pr" data-tilt>
+        <span class="num">— Practice · 06</span>
+        <div class="meta-row"><span data-i18n="p6.meta1">Open with the studio</span></div>
+        <h3 data-i18n="p6.name">The shop</h3>
+        <p class="lede" data-i18n="p6.lede">A small selection of the things the teachers actually use: mats, blocks, oils, plant skincare, simple sportswear.</p>
+        <ul class="pr-items">
+          <li><span class="name" data-i18n="p6.i1">Studio mat · cork</span><span class="price">580 000</span></li>
+          <li><span class="name" data-i18n="p6.i2">Cotton block · pair</span><span class="price">220 000</span></li>
+          <li><span class="name" data-i18n="p6.i3">Plant skincare · from</span><span class="price">180 000</span></li>
+        </ul>
+        <div class="pr-foot">
+          <span class="from" data-i18n="p6.from">From 180 000 UZS</span>
+          <a href="tel:+998900669911"><span data-i18n="pract.book">Walk in</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="schedule" id="schedule">
+  <div class="container sched-inner">
+    <div class="sched-side" data-anim="fade">
+      <span class="label" data-i18n="sched.eyebrow">— Sample week · published —</span>
+      <h2 data-i18n-html="sched.title">A week, <em>by the hour.</em></h2>
+      <p data-i18n="sched.body">Below is a representative week — the same shape every week, with seasonal variations. Booking opens seven days in advance through the studio reception or our booking site.</p>
+      <div class="sched-quote" data-i18n="sched.quote">If you cannot find a class that fits — call us. We will tell you when the room next opens up.</div>
+    </div>
+
+    <div class="sched-table" data-stagger>
+      <div class="sched-row">
+        <span class="time">Mon · 07:00</span>
+        <div class="item"><span data-i18n-html="sched.r1">Morning Hatha <em>· slow</em></span><small data-i18n="sched.r1s">Yoga shala · 60 min · all levels</small></div>
+        <span class="who mono">— with N.</span>
+      </div>
+      <div class="sched-row">
+        <span class="time">Mon · 19:00</span>
+        <div class="item"><span data-i18n-html="sched.r2">Yin <em>· evening</em></span><small data-i18n="sched.r2s">Yoga shala · 75 min · all levels</small></div>
+        <span class="who mono">— with D.</span>
+      </div>
+      <div class="sched-row">
+        <span class="time">Tue · 12:30</span>
+        <div class="item"><span data-i18n-html="sched.r3">Vinyasa flow <em>· lunchtime</em></span><small data-i18n="sched.r3s">Yoga shala · 60 min · open level</small></div>
+        <span class="who mono">— with A.</span>
+      </div>
+      <div class="sched-row">
+        <span class="time">Tue · 20:00</span>
+        <div class="item"><span data-i18n-html="sched.r4">Sound bath <em>· singing bowls</em></span><small data-i18n="sched.r4s">Sound chamber · 75 min · all welcome</small></div>
+        <span class="who mono">— with M.</span>
+      </div>
+      <div class="sched-row">
+        <span class="time">Wed · 18:30</span>
+        <div class="item"><span data-i18n-html="sched.r5">Guided meditation</span><small data-i18n="sched.r5s">Meditation room · 45 min · beginner-friendly</small></div>
+        <span class="who mono">— with N.</span>
+      </div>
+      <div class="sched-row">
+        <span class="time">Thu · 19:30</span>
+        <div class="item"><span data-i18n-html="sched.r6">Vocal therapy <em>· group</em></span><small data-i18n="sched.r6s">Sound chamber · 60 min · open</small></div>
+        <span class="who mono">— with L.</span>
+      </div>
+      <div class="sched-row">
+        <span class="time">Fri · 19:00</span>
+        <div class="item"><span data-i18n-html="sched.r7">Movement <em>· dance therapy</em></span><small data-i18n="sched.r7s">Yoga shala · 75 min · open</small></div>
+        <span class="who mono">— with R.</span>
+      </div>
+      <div class="sched-row">
+        <span class="time">Sat · 11:00</span>
+        <div class="item"><span data-i18n-html="sched.r8">Slow Hatha <em>· beginners</em></span><small data-i18n="sched.r8s">Yoga shala · 75 min · the recommended first class</small></div>
+        <span class="who mono">— with N.</span>
+      </div>
+      <div class="sched-row">
+        <span class="time">Sun · 10:00</span>
+        <div class="item"><span data-i18n-html="sched.r9">Restorative <em>· long Yin</em></span><small data-i18n="sched.r9s">Yoga shala · 90 min · all levels</small></div>
+        <span class="who mono">— with D.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="map-section" id="map">
+  <div class="container">
+    <div class="section-head" data-anim="fade">
+      <div class="left">
+        <span class="num">— III</span>
+        <span class="label" data-i18n="map.eyebrow">The space</span>
+      </div>
+      <div>
+        <h2 data-i18n-html="map.title">Six rooms, <em>one warm wing.</em></h2>
+        <p class="intro" data-i18n="map.intro">A converted ground-floor space on Mukimiy 1st Drive — six warm-plaster rooms, daylight from courtyard windows, no street noise. Below: the actual layout, by room.</p>
+      </div>
+    </div>
+
+    <div class="map-grid" data-stagger>
+      <div class="room">
+        <span class="num">— No. 01 · the practice</span>
+        <span class="name" data-i18n-html="map.r1n">Yoga shala <em>· main</em></span>
+        <span class="desc" data-i18n="map.r1d">The largest room, daylight from two sides, twelve mats with comfortable distance.</span>
+        <span class="cap mono">cap. 12 students</span>
+      </div>
+      <div class="room">
+        <span class="num">— No. 02</span>
+        <span class="name" data-i18n="map.r2n">Sound chamber</span>
+        <span class="desc" data-i18n="map.r2d">Acoustic-treated, low ceiling, singing bowls and gong on the floor. Sound baths only.</span>
+        <span class="cap mono">cap. 16 sitting</span>
+      </div>
+      <div class="room">
+        <span class="num">— No. 03</span>
+        <span class="name" data-i18n="map.r3n">Meditation room</span>
+        <span class="desc" data-i18n="map.r3d">Small, dim, no windows by design. Cushions only. Group meditation and breathwork.</span>
+        <span class="cap mono">cap. 10 sitting</span>
+      </div>
+      <div class="room">
+        <span class="num">— No. 04</span>
+        <span class="name" data-i18n="map.r4n">Treatment room</span>
+        <span class="desc" data-i18n="map.r4d">Single therapist, single table. Therapeutic and Thai-style massage. By appointment.</span>
+        <span class="cap mono">cap. 1 client</span>
+      </div>
+      <div class="room">
+        <span class="num">— No. 05</span>
+        <span class="name" data-i18n-html="map.r5n">Vegetarian café <em>· open</em></span>
+        <span class="desc" data-i18n="map.r5d">Open with the studio. Plant lunches, herbal teas, soup of the day. Walk in.</span>
+        <span class="cap mono">cap. 24 seats</span>
+      </div>
+      <div class="room">
+        <span class="num">— No. 06</span>
+        <span class="name" data-i18n="map.r6n">The shop</span>
+        <span class="desc" data-i18n="map.r6d">A small corner of the entrance — mats, blocks, oils, skincare, simple sportswear.</span>
+        <span class="cap mono">— retail</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="container">
+    <div class="section-head" data-anim="fade">
+      <div class="left">
+        <span class="num">— IV</span>
+        <span class="label" data-i18n="visit.eyebrow">The studio</span>
+      </div>
+      <div>
+        <h2 data-i18n-html="visit.title">Mukimiy 1st Drive 8A. <em>Open daily.</em></h2>
+      </div>
+    </div>
+
+    <div class="visit-grid">
+      <div class="visit-info" data-anim="fade">
+        <div class="info-row">
+          <div class="lab" data-i18n="visit.hrsLabel">Studio hours</div>
+          <div class="val" data-i18n-html="visit.hrsVal">Daily · 07:00 — 22:00<br/>Café · 09:00 — 20:00</div>
+        </div>
+        <div class="info-row">
+          <div class="lab" data-i18n="visit.phoneLabel">Reception</div>
+          <a class="val large" href="tel:+998900669911">+998 90 066 99 11</a>
+        </div>
+        <div class="info-row">
+          <div class="lab" data-i18n="visit.tgLabel">Telegram</div>
+          <a class="val" href="https://t.me/artha_uz" target="_blank" rel="noopener">@artha_uz</a>
+        </div>
+        <div class="info-row">
+          <div class="lab" data-i18n="visit.emailLabel">Email</div>
+          <a class="val" href="mailto:hello@artha.uz">hello@artha.uz</a>
+        </div>
+        <div class="info-row">
+          <div class="lab" data-i18n="visit.instaLabel">Instagram</div>
+          <a class="val" href="https://www.instagram.com/artha.uz/" target="_blank" rel="noopener">@artha.uz</a>
+        </div>
+        <div class="info-row">
+          <div class="lab" data-i18n="visit.addrLabel">Address</div>
+          <div class="val" data-i18n-html="visit.addr">Mukimiy 1st Drive 8A<br/>Yakkasaray district · Tashkent</div>
+        </div>
+        <div class="info-row">
+          <div class="lab" data-i18n="visit.servicesLabel">In the building</div>
+          <div class="val" data-i18n="visit.services">Yoga shala · sound chamber · meditation room · treatment room · vegetarian café · shop</div>
+        </div>
+      </div>
+
+      <article class="visit-card" data-anim="fade">
+        <span class="label" data-i18n="visit.cardLabel">— Your first class —</span>
+        <h3 data-i18n-html="visit.cardTitle">Slow Hatha, <em>Saturday eleven o'clock.</em></h3>
+        <p data-i18n="visit.cardBody">If you have not practised before, the recommended first class is the slow Hatha at 11:00 on Saturday — designed for absolute beginners, taught by Artha's most senior teacher. Arrive ten minutes early; mats and blocks provided.</p>
+        <div class="magnetic-wrap">
+          <a class="btn btn-clay" href="tel:+998900669911" id="magneticBtn">
+            <span data-i18n="visit.cardCta">Book your first class</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="qrow">
+          <div>
+            <div class="qb">8</div>
+            <div class="qbl" data-i18n="visit.qb1">Years</div>
+          </div>
+          <div>
+            <div class="qb">6</div>
+            <div class="qbl" data-i18n="visit.qb2">Rooms</div>
+          </div>
+          <div>
+            <div class="qb">5,0<span style="font-size:14px;color:var(--plaster-2);opacity:.7">★</span></div>
+            <div class="qbl" data-i18n="visit.qb3">447 reviews</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <span class="label" data-i18n="final.eyebrow">— A quiet warm room on Mukimiy —</span>
+    <h2 data-i18n-html="final.title">One hour. <em>One room. One teacher.</em></h2>
+    <p data-i18n="final.p">Book the slow Hatha at eleven on Saturday and we will take it from there. Reception speaks Russian, Uzbek and English.</p>
+    <div class="hero-cta">
+      <a href="tel:+998900669911" class="btn">
+        <span data-i18n="final.cta1">+998 90 066 99 11</span>
+      </a>
+      <a href="mailto:hello@artha.uz" class="btn btn-ghost-dark">
+        <span data-i18n="final.cta2">hello@artha.uz</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="wordmark-section">
+  <div class="container">
+    <div class="wordmark"><em>Artha</em></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h4 data-i18n="footer.aboutTitle">— Artha</h4>
+        <p data-i18n="footer.about">A holistic wellness centre in Tashkent's Yakkasaray district. Yoga, sound, meditation, vocal and dance therapy, vegetarian café, treatment rooms, shop. Eight years on Mukimiy.</p>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.addrTitle">— Address</h4>
+        <p data-i18n="footer.a1">Mukimiy 1st Drive 8A</p>
+        <p data-i18n="footer.a2">Yakkasaray district</p>
+        <p data-i18n="footer.a3">Tashkent · Uzbekistan</p>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.hrsTitle">— Hours</h4>
+        <p data-i18n="footer.h1">Daily · 07:00 — 22:00</p>
+        <p data-i18n="footer.h2">Café · 09:00 — 20:00</p>
+        <p data-i18n="footer.h3">Booking — 7 days ahead</p>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.contactTitle">— Contact</h4>
+        <a href="tel:+998900669911">+998 90 066 99 11</a>
+        <a href="mailto:hello@artha.uz">hello@artha.uz</a>
+        <a href="https://t.me/artha_uz" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://www.instagram.com/artha.uz/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© <span id="yr"></span> · Artha · Tashkent · Since 2017</div>
+      <div data-i18n="footer.note">Yandex 5,0 · 447 reviews · 6 rooms</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const I18N = {
+  en: {
+    "brand.sub":"Tashkent · Mind · Body · Soul",
+    "nav.story":"Studio","nav.pract":"Practices","nav.sched":"Schedule","nav.map":"The space","nav.visit":"Visit","nav.cta":"Book a class",
+    "hero.eyebrow":"Yoga · meditation · sound · café · since 2017",
+    "hero.title":"Eight years. <em>Six practices.</em><br/>One quiet room on Mukimiy.",
+    "hero.lede":"Artha is a holistic wellness centre in Tashkent's Yakkasaray district — yoga, meditation, sound therapy, vocal and dance therapy, a small vegetarian café, treatment rooms and a mind-body shop, all under one warm-plaster roof. <em>Five hundred people a month walk in here, calm down, and walk back out.</em>",
+    "hero.cta1":"Book a class","hero.stat1":"Years of practice","hero.stat2":"Reviews · 5,0★","hero.stat3":"Practice rooms",
+    "marquee.line":"Hatha <em>·</em> Vinyasa <em>·</em> Yin <em>·</em> Sound bath <em>·</em> Meditation <em>·</em> Vocal <em>·</em> Dance therapy <em>·</em> Pilates <em>·</em>",
+
+    "story.eyebrow":"The studio",
+    "story.title":"Opened in 2017. <em>Run by the same teachers, still.</em>",
+    "story.intro":"Artha was founded in 2017 by a small group of practitioners who wanted a quiet, modern, premium room in Tashkent for the practices they had been studying for years. Eight years on, the same teachers run the same rooms — and the queue at 19:00 on a Tuesday is the same queue.",
+    "story.numLabel":"Years · 6 rooms",
+    "story.k1":"Founded","story.k2":"Yandex","story.k3":"Practices","story.k4":"Café","story.k5":"Address",
+    "story.l1":"Artha is a quiet room. <em>That is the whole brief.</em>",
+    "story.l2":"We opened in 2017 in a single white-plaster room on Mukimiy 1st Drive — at the time, the only place in Yakkasaray where a serious yoga student could practise hatha at seven in the morning, sit a sound meditation in the same room at noon, and have a vegetarian lunch in the next room at one.",
+    "story.l3":"Eight years later we are six rooms — a yoga shala, a meditation room, a sound chamber, a treatment room, a small vegetarian café, and a shop with the things the teachers actually use. <span class=\"q\">Same plaster, same teachers, same patience.</span>",
+    "story.l4":"We do not sell quick wins. There is no thirty-day challenge, no ascension package, no metaphysical merchandise at the entrance. We sell a single, repeatable thing: <em>one hour, in a quiet warm room, with a teacher who knows what they are doing.</em>",
+    "story.l5":"Our students range from eighteen-year-old students who come at six in the morning before class to seventy-year-old grandmothers who come for slow hatha twice a week. The teachers are the same in both rooms.",
+    "story.l6":"If you have practised before, the room will feel familiar. If you have not, <em>book the slow Hatha at eleven on a Saturday and we will take it from there.</em>",
+
+    "pract.eyebrow":"The catalogue",
+    "pract.title":"Six practices, <em>one warm room.</em>",
+    "pract.intro":"Yoga, meditation and sound, vocal and dance, a vegetarian café, treatment rooms, and a small shop. Six families that have been the spine of the studio since 2017 — refined every season by the teachers who run them.",
+    "pract.book":"Book a class",
+    "p1.meta1":"Hatha · Vinyasa · Yin","p1.meta2":"7:00 — 21:00 daily","p1.name":"Yoga · <em>the practice.</em>","p1.lede":"Hatha at seven, Vinyasa flow at noon, restorative Yin at sunset, slow Hatha for beginners on Saturday morning. Small classes, certified teachers who have practised for ten or more years, no rushing.","p1.i1":"Drop-in single class","p1.i2":"Pack of 8 classes · valid 30 days","p1.i3":"Monthly unlimited","p1.i4":"Private 1-to-1 · 60 min","p1.from":"From 120 000 UZS",
+    "p2.meta1":"Group · 75 min","p2.name":"<em>Sound</em> & meditation","p2.lede":"Singing-bowl baths, gong meditation, guided breathwork. In our dedicated sound chamber, weekly schedule.","p2.i1":"Sound bath · group","p2.i2":"Guided meditation · group","p2.i3":"Private session · 60 min","p2.from":"From 140 000 UZS",
+    "p3.meta1":"Group · 60 min","p3.name":"Vocal · dance","p3.lede":"Vocal therapy and 5Rhythms-style movement classes. Open level, no experience needed, weekly.","p3.i1":"Vocal therapy · group","p3.i2":"Movement · group","p3.from":"From 160 000 UZS",
+    "p4.meta1":"Daily · 09:00 — 20:00","p4.name":"Vegetarian café","p4.lede":"Vegetarian, vegan and raw plates, herbal teas, small daily soup. Open whether or not you took a class — students get 10% off.","p4.i1":"Plant lunch plate","p4.i2":"Soup & bread","p4.i3":"Pot of herbal tea","p4.from":"From 38 000 UZS",
+    "p5.meta1":"By appointment","p5.name":"Treatment <em>room</em>","p5.lede":"Therapeutic massage, Thai-style work, deep tissue. By the same therapist who has run the room since 2018.","p5.i1":"Therapeutic · 60 min","p5.i2":"Therapeutic · 90 min","p5.i3":"Thai · 90 min","p5.from":"From 420 000 UZS",
+    "p6.meta1":"Open with the studio","p6.name":"The shop","p6.lede":"A small selection of the things the teachers actually use: mats, blocks, oils, plant skincare, simple sportswear.","p6.i1":"Studio mat · cork","p6.i2":"Cotton block · pair","p6.i3":"Plant skincare · from","p6.from":"From 180 000 UZS",
+
+    "sched.eyebrow":"— Sample week · published —",
+    "sched.title":"A week, <em>by the hour.</em>",
+    "sched.body":"Below is a representative week — the same shape every week, with seasonal variations. Booking opens seven days in advance through the studio reception or our booking site.",
+    "sched.quote":"If you cannot find a class that fits — call us. We will tell you when the room next opens up.",
+    "sched.r1":"Morning Hatha <em>· slow</em>","sched.r1s":"Yoga shala · 60 min · all levels",
+    "sched.r2":"Yin <em>· evening</em>","sched.r2s":"Yoga shala · 75 min · all levels",
+    "sched.r3":"Vinyasa flow <em>· lunchtime</em>","sched.r3s":"Yoga shala · 60 min · open level",
+    "sched.r4":"Sound bath <em>· singing bowls</em>","sched.r4s":"Sound chamber · 75 min · all welcome",
+    "sched.r5":"Guided meditation","sched.r5s":"Meditation room · 45 min · beginner-friendly",
+    "sched.r6":"Vocal therapy <em>· group</em>","sched.r6s":"Sound chamber · 60 min · open",
+    "sched.r7":"Movement <em>· dance therapy</em>","sched.r7s":"Yoga shala · 75 min · open",
+    "sched.r8":"Slow Hatha <em>· beginners</em>","sched.r8s":"Yoga shala · 75 min · the recommended first class",
+    "sched.r9":"Restorative <em>· long Yin</em>","sched.r9s":"Yoga shala · 90 min · all levels",
+
+    "map.eyebrow":"The space",
+    "map.title":"Six rooms, <em>one warm wing.</em>",
+    "map.intro":"A converted ground-floor space on Mukimiy 1st Drive — six warm-plaster rooms, daylight from courtyard windows, no street noise. Below: the actual layout, by room.",
+    "map.r1n":"Yoga shala <em>· main</em>","map.r1d":"The largest room, daylight from two sides, twelve mats with comfortable distance.",
+    "map.r2n":"Sound chamber","map.r2d":"Acoustic-treated, low ceiling, singing bowls and gong on the floor. Sound baths only.",
+    "map.r3n":"Meditation room","map.r3d":"Small, dim, no windows by design. Cushions only. Group meditation and breathwork.",
+    "map.r4n":"Treatment room","map.r4d":"Single therapist, single table. Therapeutic and Thai-style massage. By appointment.",
+    "map.r5n":"Vegetarian café <em>· open</em>","map.r5d":"Open with the studio. Plant lunches, herbal teas, soup of the day. Walk in.",
+    "map.r6n":"The shop","map.r6d":"A small corner of the entrance — mats, blocks, oils, skincare, simple sportswear.",
+
+    "visit.eyebrow":"The studio",
+    "visit.title":"Mukimiy 1st Drive 8A. <em>Open daily.</em>",
+    "visit.hrsLabel":"Studio hours","visit.hrsVal":"Daily · 07:00 — 22:00<br/>Café · 09:00 — 20:00",
+    "visit.phoneLabel":"Reception","visit.tgLabel":"Telegram","visit.emailLabel":"Email","visit.instaLabel":"Instagram","visit.addrLabel":"Address","visit.servicesLabel":"In the building",
+    "visit.addr":"Mukimiy 1st Drive 8A<br/>Yakkasaray district · Tashkent",
+    "visit.services":"Yoga shala · sound chamber · meditation room · treatment room · vegetarian café · shop",
+    "visit.cardLabel":"— Your first class —",
+    "visit.cardTitle":"Slow Hatha, <em>Saturday eleven o'clock.</em>",
+    "visit.cardBody":"If you have not practised before, the recommended first class is the slow Hatha at 11:00 on Saturday — designed for absolute beginners, taught by Artha's most senior teacher. Arrive ten minutes early; mats and blocks provided.",
+    "visit.cardCta":"Book your first class",
+    "visit.qb1":"Years","visit.qb2":"Rooms","visit.qb3":"447 reviews",
+
+    "final.eyebrow":"— A quiet warm room on Mukimiy —",
+    "final.title":"One hour. <em>One room. One teacher.</em>",
+    "final.p":"Book the slow Hatha at eleven on Saturday and we will take it from there. Reception speaks Russian, Uzbek and English.",
+    "final.cta1":"+998 90 066 99 11","final.cta2":"hello@artha.uz",
+
+    "footer.aboutTitle":"— Artha","footer.about":"A holistic wellness centre in Tashkent's Yakkasaray district. Yoga, sound, meditation, vocal and dance therapy, vegetarian café, treatment rooms, shop. Eight years on Mukimiy.",
+    "footer.addrTitle":"— Address","footer.a1":"Mukimiy 1st Drive 8A","footer.a2":"Yakkasaray district","footer.a3":"Tashkent · Uzbekistan",
+    "footer.hrsTitle":"— Hours","footer.h1":"Daily · 07:00 — 22:00","footer.h2":"Café · 09:00 — 20:00","footer.h3":"Booking — 7 days ahead",
+    "footer.contactTitle":"— Contact","footer.note":"Yandex 5,0 · 447 reviews · 6 rooms"
+  },
+
+  ru: {
+    "brand.sub":"Ташкент · Mind · Body · Soul",
+    "nav.story":"Студия","nav.pract":"Практики","nav.sched":"Расписание","nav.map":"Пространство","nav.visit":"Контакты","nav.cta":"Записаться",
+    "hero.eyebrow":"Йога · медитация · звук · кафе · с 2017",
+    "hero.title":"Восемь лет. <em>Шесть практик.</em><br/>Одна тихая комната на Мукимий.",
+    "hero.lede":"Artha — холистический wellness-центр в Яккасарайском районе Ташкента: йога, медитация, sound therapy, vocal и dance therapy, маленькое вегетарианское кафе, кабинеты для процедур и магазин mind-body — всё под одной крышей с тёплой штукатуркой. <em>Пятьсот человек в месяц приходят сюда, успокаиваются — и уходят.</em>",
+    "hero.cta1":"Записаться","hero.stat1":"Лет практики","hero.stat2":"Отзывов · 5,0★","hero.stat3":"Практических зала",
+    "marquee.line":"Хатха <em>·</em> Виньяса <em>·</em> Инь <em>·</em> Звуковая ванна <em>·</em> Медитация <em>·</em> Вокал <em>·</em> Танцетерапия <em>·</em> Пилатес <em>·</em>",
+
+    "story.eyebrow":"О студии",
+    "story.title":"Открыто в 2017-м. <em>Те же преподаватели по сей день.</em>",
+    "story.intro":"Artha основана в 2017 году небольшой группой практикующих, которым нужна была тихая, современная, премиальная комната в Ташкенте для практик, изучаемых годами. Восемь лет спустя те же преподаватели ведут те же залы — а очередь во вторник в 19:00 остаётся той же очередью.",
+    "story.numLabel":"Лет · 6 залов",
+    "story.k1":"Основано","story.k2":"Yandex","story.k3":"Практик","story.k4":"Кафе","story.k5":"Адрес",
+    "story.l1":"Artha — это тихая комната. <em>Это и есть весь бриф.</em>",
+    "story.l2":"Мы открылись в 2017-м в одной комнате с белой штукатуркой на 1-м проезде Мукимий — на тот момент это было единственное место в Яккасарае, где серьёзный практик мог делать хатха в семь утра, сесть на звуковую медитацию в той же комнате в полдень и поесть вегетарианский обед в соседней комнате в час.",
+    "story.l3":"Восемь лет спустя у нас шесть комнат — yoga shala, медитационная, звуковая камера, кабинет процедур, маленькое вегетарианское кафе и магазин с теми вещами, которыми реально пользуются преподаватели. <span class=\"q\">Та же штукатурка, те же преподаватели, то же терпение.</span>",
+    "story.l4":"Мы не продаём быстрые победы. Нет тридцатидневных челленджей, нет «пакетов восхождения», нет метафизического мерча на входе. Мы продаём одно, повторяемое: <em>один час, в тихой тёплой комнате, с преподавателем, который знает что делает.</em>",
+    "story.l5":"Наши студенты — от восемнадцатилетних, приходящих в шесть утра до пар, до семидесятилетних бабушек, идущих на медленную хатху дважды в неделю. Преподаватели одни и те же в обоих залах.",
+    "story.l6":"Если вы практиковали — комната покажется знакомой. Если нет — <em>запишитесь на медленную хатху в одиннадцать в субботу, дальше разберёмся.</em>",
+
+    "pract.eyebrow":"Каталог",
+    "pract.title":"Шесть практик, <em>одна тёплая комната.</em>",
+    "pract.intro":"Йога, медитация и звук, вокал и танец, вегетарианское кафе, кабинеты процедур и маленький магазин. Шесть семейств — позвоночник студии с 2017-го, доводимый каждым сезоном теми, кто их ведёт.",
+    "pract.book":"Записаться",
+    "p1.meta1":"Хатха · Виньяса · Инь","p1.meta2":"7:00 — 21:00 ежедневно","p1.name":"Йога · <em>практика.</em>","p1.lede":"Хатха в семь, Виньяса в полдень, восстановительная Инь на закате, медленная Хатха для начинающих в субботу утром. Маленькие группы, сертифицированные преподаватели с десятилетней практикой, без спешки.","p1.i1":"Разовое занятие","p1.i2":"Пакет 8 занятий · 30 дней","p1.i3":"Месяц безлимит","p1.i4":"Индивидуально 1-на-1 · 60 мин","p1.from":"От 120 000 сум",
+    "p2.meta1":"Группа · 75 мин","p2.name":"<em>Звук</em> и медитация","p2.lede":"Поющие чаши, гонг-медитация, дыхательные практики. В нашей звуковой камере, по недельному расписанию.","p2.i1":"Звуковая ванна · группа","p2.i2":"Гид-медитация · группа","p2.i3":"Индивидуально · 60 мин","p2.from":"От 140 000 сум",
+    "p3.meta1":"Группа · 60 мин","p3.name":"Вокал · танец","p3.lede":"Вокальная терапия и движение в стиле 5Rhythms. Open level, без подготовки, еженедельно.","p3.i1":"Вокал · группа","p3.i2":"Движение · группа","p3.from":"От 160 000 сум",
+    "p4.meta1":"Ежедневно · 09:00 — 20:00","p4.name":"Вегетарианское кафе","p4.lede":"Вегетарианские, веганские и raw-блюда, травяные чаи, ежедневный суп. Открыто независимо от занятия — студентам скидка 10%.","p4.i1":"Растительный обед","p4.i2":"Суп с хлебом","p4.i3":"Чайник травяного чая","p4.from":"От 38 000 сум",
+    "p5.meta1":"По записи","p5.name":"Кабинет <em>процедур</em>","p5.lede":"Лечебный массаж, тайская работа, deep tissue. Тот же терапевт, ведущий кабинет с 2018-го.","p5.i1":"Лечебный · 60 мин","p5.i2":"Лечебный · 90 мин","p5.i3":"Тайский · 90 мин","p5.from":"От 420 000 сум",
+    "p6.meta1":"Открыт со студией","p6.name":"Магазин","p6.lede":"Небольшая подборка вещей, которыми реально пользуются преподаватели: коврики, блоки, масла, растительный уход, простая спортивная одежда.","p6.i1":"Коврик пробковый","p6.i2":"Блок хлопковый · пара","p6.i3":"Растительный уход · от","p6.from":"От 180 000 сум",
+
+    "sched.eyebrow":"— Образец недели · открыто —",
+    "sched.title":"Неделя, <em>по часам.</em>",
+    "sched.body":"Ниже — представительная неделя, форма та же каждую неделю с сезонными вариациями. Запись открывается за семь дней через ресепшн или booking-site.",
+    "sched.quote":"Если не находите подходящего занятия — позвоните. Мы скажем когда комната освободится в следующий раз.",
+    "sched.r1":"Утренняя Хатха <em>· медленная</em>","sched.r1s":"Yoga shala · 60 мин · все уровни",
+    "sched.r2":"Инь <em>· вечер</em>","sched.r2s":"Yoga shala · 75 мин · все уровни",
+    "sched.r3":"Виньяса flow <em>· обед</em>","sched.r3s":"Yoga shala · 60 мин · open level",
+    "sched.r4":"Звуковая ванна <em>· поющие чаши</em>","sched.r4s":"Звуковая камера · 75 мин · все",
+    "sched.r5":"Гид-медитация","sched.r5s":"Медитационная · 45 мин · для новичков",
+    "sched.r6":"Вокальная терапия <em>· группа</em>","sched.r6s":"Звуковая камера · 60 мин · open",
+    "sched.r7":"Движение <em>· танцетерапия</em>","sched.r7s":"Yoga shala · 75 мин · open",
+    "sched.r8":"Медленная Хатха <em>· начинающие</em>","sched.r8s":"Yoga shala · 75 мин · рекомендованное первое занятие",
+    "sched.r9":"Восстановительная <em>· долгий Инь</em>","sched.r9s":"Yoga shala · 90 мин · все уровни",
+
+    "map.eyebrow":"Пространство",
+    "map.title":"Шесть комнат, <em>одно тёплое крыло.</em>",
+    "map.intro":"Переоборудованное помещение на первом этаже на 1-м проезде Мукимий — шесть комнат с тёплой штукатуркой, дневной свет из окон во двор, без уличного шума. Ниже — фактическая планировка по комнатам.",
+    "map.r1n":"Yoga shala <em>· главный</em>","map.r1d":"Самая большая комната, дневной свет с двух сторон, двенадцать ковриков с комфортным расстоянием.","map.r2n":"Звуковая камера","map.r2d":"Акустически отделана, низкий потолок, поющие чаши и гонг на полу. Только звуковые ванны.","map.r3n":"Медитационная","map.r3d":"Маленькая, тёмная, без окон по проекту. Только подушки. Групповая медитация и дыхательные.","map.r4n":"Кабинет процедур","map.r4d":"Один терапевт, один стол. Лечебный и тайский массаж. По записи.","map.r5n":"Вегетарианское кафе <em>· открыто</em>","map.r5d":"Открыто со студией. Растительные обеды, травяные чаи, суп дня. Заходите.","map.r6n":"Магазин","map.r6d":"Маленький угол на входе — коврики, блоки, масла, уход, простая спортивная одежда.",
+
+    "visit.eyebrow":"Студия",
+    "visit.title":"1-й проезд Мукимий 8А. <em>Открыто ежедневно.</em>",
+    "visit.hrsLabel":"Часы студии","visit.hrsVal":"Ежедневно · 07:00 — 22:00<br/>Кафе · 09:00 — 20:00",
+    "visit.phoneLabel":"Ресепшн","visit.tgLabel":"Telegram","visit.emailLabel":"Эл. почта","visit.instaLabel":"Instagram","visit.addrLabel":"Адрес","visit.servicesLabel":"В здании",
+    "visit.addr":"1-й проезд Мукимий 8А<br/>Яккасарайский район · Ташкент",
+    "visit.services":"Yoga shala · звуковая камера · медитационная · кабинет процедур · вегетарианское кафе · магазин",
+    "visit.cardLabel":"— Ваше первое занятие —",
+    "visit.cardTitle":"Медленная Хатха, <em>суббота одиннадцать утра.</em>",
+    "visit.cardBody":"Если не практиковали раньше — рекомендованное первое занятие это медленная Хатха в 11:00 в субботу. Спроектирована для абсолютных начинающих, ведёт самый старший преподаватель Artha. Приходите за десять минут до начала; коврики и блоки выдаются.",
+    "visit.cardCta":"Записаться на первое занятие",
+    "visit.qb1":"Лет","visit.qb2":"Залов","visit.qb3":"447 отзывов",
+
+    "final.eyebrow":"— Тихая тёплая комната на Мукимий —",
+    "final.title":"Один час. <em>Одна комната. Один преподаватель.</em>",
+    "final.p":"Запишитесь на медленную Хатху в одиннадцать в субботу — дальше разберёмся. Ресепшн отвечает на русском, узбекском и английском.",
+    "final.cta1":"+998 90 066 99 11","final.cta2":"hello@artha.uz",
+
+    "footer.aboutTitle":"— Artha","footer.about":"Холистический wellness-центр в Яккасарайском районе Ташкента. Йога, звук, медитация, вокальная и танцетерапия, вегетарианское кафе, кабинеты процедур, магазин. Восемь лет на Мукимий.",
+    "footer.addrTitle":"— Адрес","footer.a1":"1-й проезд Мукимий 8А","footer.a2":"Яккасарайский район","footer.a3":"Ташкент · Узбекистан",
+    "footer.hrsTitle":"— Часы","footer.h1":"Ежедневно · 07:00 — 22:00","footer.h2":"Кафе · 09:00 — 20:00","footer.h3":"Запись — за 7 дней",
+    "footer.contactTitle":"— Контакты","footer.note":"Yandex 5,0 · 447 отзывов · 6 залов"
+  },
+
+  uz: {
+    "brand.sub":"Toshkent · Mind · Body · Soul",
+    "nav.story":"Studiya","nav.pract":"Amaliyotlar","nav.sched":"Jadval","nav.map":"Hudud","nav.visit":"Aloqa","nav.cta":"Yozilish",
+    "hero.eyebrow":"Yoga · meditatsiya · ovoz · kafe · 2017-yildan",
+    "hero.title":"Sakkiz yil. <em>Olti amaliyot.</em><br/>Mukimiy'da bitta tinch xona.",
+    "hero.lede":"Artha — Toshkentning Yakkasaroy tumanidagi xolistik wellness-markazi: yoga, meditatsiya, sound therapy, vocal va dance therapy, kichik vegetarian kafe, muolaja xonalari va mind-body do'kon — barchasi iliq devor ostida bir tom ostida. <em>Oyiga besh yuz odam bu yerga keladi, tinchlanadi va qaytib ketadi.</em>",
+    "hero.cta1":"Yozilish","hero.stat1":"Yillik amaliyot","hero.stat2":"Sharh · 5,0★","hero.stat3":"Amaliyot xonasi",
+    "marquee.line":"Hatha <em>·</em> Vinyasa <em>·</em> Yin <em>·</em> Ovoz vannasi <em>·</em> Meditatsiya <em>·</em> Vokal <em>·</em> Raqs terapiyasi <em>·</em> Pilates <em>·</em>",
+
+    "story.eyebrow":"Studiya",
+    "story.title":"2017-yilda ochilgan. <em>Bugun ham o'sha o'qituvchilar olib boradi.</em>",
+    "story.intro":"Artha 2017-yilda kichik amaliyotchilar guruhi tomonidan asos solingan — yillar davomida o'rganib kelgan amaliyotlari uchun Toshkentda tinch, zamonaviy, premium xona kerak edi. Sakkiz yildan keyin o'sha o'qituvchilar o'sha xonalarni olib boradi — va seshanba 19:00 dagi navbat o'sha-o'sha navbat.",
+    "story.numLabel":"Yil · 6 xona",
+    "story.k1":"Asos solingan","story.k2":"Yandex","story.k3":"Amaliyot","story.k4":"Kafe","story.k5":"Manzil",
+    "story.l1":"Artha — bu tinch xona. <em>Butun brif shu.</em>",
+    "story.l2":"Biz 2017-yilda Mukimiy 1-tor ko'chasidagi oq devorli bitta xonada ochildik — o'sha paytda Yakkasaroyda jiddiy yoga shogirdi ertalab yettida hatha qila olishi, peshinda o'sha xonada ovoz meditatsiyasiga o'tirishi va birda yondosh xonada vegetarian tushlik qilishi mumkin bo'lgan yagona joy edi.",
+    "story.l3":"Sakkiz yildan keyin biz olti xonamiz — yoga shala, meditatsiya xonasi, ovoz kamerasi, muolaja xonasi, kichik vegetarian kafe va o'qituvchilar haqiqatan ishlatadigan narsalar bilan do'kon. <span class=\"q\">O'sha devor, o'sha o'qituvchilar, o'sha sabr.</span>",
+    "story.l4":"Biz tez g'alabalarni sotmaymiz. O'ttiz kunlik challenge yo'q, «yuksalish to'plami» yo'q, kirishda metafizik tovar yo'q. Biz bitta, takrorlanadigan narsani sotamiz: <em>bir soat, tinch iliq xonada, nima qilayotganini biladigan o'qituvchi bilan.</em>",
+    "story.l5":"Bizning shogirdlar — darsdan oldin oltida keladigan o'n sakkiz yoshli talabalardan haftada ikki marta sekin hathaga keladigan yetmish yoshli buvilargacha. O'qituvchilar ikkala xonada bir xil.",
+    "story.l6":"Agar siz amaliyot qilgan bo'lsangiz — xona tanish bo'lib tuyuladi. Agar yo'q bo'lsa — <em>shanba kuni o'n birda sekin Hathaga yozilib qo'ying, qolganini biz hal qilamiz.</em>",
+
+    "pract.eyebrow":"Katalog",
+    "pract.title":"Olti amaliyot, <em>bitta iliq xona.</em>",
+    "pract.intro":"Yoga, meditatsiya va ovoz, vokal va raqs, vegetarian kafe, muolaja xonalari va kichik do'kon. Olti oila — 2017-yildan beri studiya suyaklari, ularni olib boradigan o'qituvchilar tomonidan har mavsum sayqallangan.",
+    "pract.book":"Yozilish",
+    "p1.meta1":"Hatha · Vinyasa · Yin","p1.meta2":"7:00 — 21:00 har kuni","p1.name":"Yoga · <em>amaliyot.</em>","p1.lede":"Yettida Hatha, peshinda Vinyasa, quyosh botishida tiklovchi Yin, shanba ertalab boshlovchilar uchun sekin Hatha. Kichik guruhlar, o'n yildan ortiq amaliyot bilan sertifikatlangan o'qituvchilar, shoshilmasdan.","p1.i1":"Bir martalik dars","p1.i2":"8 dars to'plami · 30 kun","p1.i3":"Oylik cheksiz","p1.i4":"Yakka 1-ga-1 · 60 daq","p1.from":"120 000 so'mdan",
+    "p2.meta1":"Guruh · 75 daq","p2.name":"<em>Ovoz</em> va meditatsiya","p2.lede":"Sayrayotgan piyola vannalari, gong meditatsiyasi, nafas amaliyotlari. Ovoz kameramizda, haftalik jadvalda.","p2.i1":"Ovoz vannasi · guruh","p2.i2":"Boshqaruvchi meditatsiya","p2.i3":"Yakka · 60 daq","p2.from":"140 000 so'mdan",
+    "p3.meta1":"Guruh · 60 daq","p3.name":"Vokal · raqs","p3.lede":"Vokal terapiya va 5Rhythms uslubidagi harakat darslari. Open level, tajriba talab qilinmaydi, haftada.","p3.i1":"Vokal · guruh","p3.i2":"Harakat · guruh","p3.from":"160 000 so'mdan",
+    "p4.meta1":"Har kuni · 09:00 — 20:00","p4.name":"Vegetarian kafe","p4.lede":"Vegetarian, vegan va raw taomlar, dorivor choylar, kunlik sho'rva. Darsdan qat'i nazar ochiq — talabalarga 10% chegirma.","p4.i1":"O'simlik tushlik","p4.i2":"Sho'rva va non","p4.i3":"Dorivor choy choynak","p4.from":"38 000 so'mdan",
+    "p5.meta1":"Yozilish bo'yicha","p5.name":"Muolaja <em>xonasi</em>","p5.lede":"Davolovchi massaj, Tay uslubi, deep tissue. 2018-yildan beri xonani olib boradigan o'sha terapevt.","p5.i1":"Davolovchi · 60 daq","p5.i2":"Davolovchi · 90 daq","p5.i3":"Tay · 90 daq","p5.from":"420 000 so'mdan",
+    "p6.meta1":"Studiya bilan ochiq","p6.name":"Do'kon","p6.lede":"O'qituvchilar haqiqatan ishlatadigan narsalardan kichik tanlov: gilamlar, bloklar, moylar, o'simlik parvarishi, oddiy sport kiyimlari.","p6.i1":"Studio gilam · po'kak","p6.i2":"Paxta blok · juftlik","p6.i3":"O'simlik parvarishi · dan","p6.from":"180 000 so'mdan",
+
+    "sched.eyebrow":"— Hafta namunasi · ochiq —",
+    "sched.title":"Hafta, <em>soat bo'yicha.</em>",
+    "sched.body":"Quyida — namoyishkor hafta, har hafta bir xil shakl mavsumiy o'zgarishlar bilan. Yozilish yetti kun oldin resepshn yoki booking-site orqali ochiladi.",
+    "sched.quote":"Mos keladigan dars topa olmasangiz — qo'ng'iroq qiling. Xonaning keyingi qachon bo'shashini aytamiz.",
+    "sched.r1":"Ertalabki Hatha <em>· sekin</em>","sched.r1s":"Yoga shala · 60 daq · barcha darajalar",
+    "sched.r2":"Yin <em>· kechqurun</em>","sched.r2s":"Yoga shala · 75 daq · barcha darajalar",
+    "sched.r3":"Vinyasa flow <em>· tushlik</em>","sched.r3s":"Yoga shala · 60 daq · open level",
+    "sched.r4":"Ovoz vannasi <em>· sayrayotgan piyolalar</em>","sched.r4s":"Ovoz kamerasi · 75 daq · barcha",
+    "sched.r5":"Boshqaruvchi meditatsiya","sched.r5s":"Meditatsiya · 45 daq · boshlovchilar uchun",
+    "sched.r6":"Vokal terapiya <em>· guruh</em>","sched.r6s":"Ovoz kamerasi · 60 daq · open",
+    "sched.r7":"Harakat <em>· raqs terapiyasi</em>","sched.r7s":"Yoga shala · 75 daq · open",
+    "sched.r8":"Sekin Hatha <em>· boshlovchilar</em>","sched.r8s":"Yoga shala · 75 daq · tavsiya etilgan birinchi dars",
+    "sched.r9":"Tiklovchi <em>· uzun Yin</em>","sched.r9s":"Yoga shala · 90 daq · barcha darajalar",
+
+    "map.eyebrow":"Hudud",
+    "map.title":"Olti xona, <em>bitta iliq qanot.</em>",
+    "map.intro":"Mukimiy 1-tor ko'chasidagi qayta jihozlangan birinchi qavat — olti iliq devorli xona, hovli derazalardan kunduzgi yorug'lik, ko'cha shovqini yo'q. Quyida — xonalar bo'yicha aniq joylashuv.",
+    "map.r1n":"Yoga shala <em>· asosiy</em>","map.r1d":"Eng katta xona, ikki tomondan kunduzgi yorug'lik, qulay masofada o'n ikki gilam.","map.r2n":"Ovoz kamerasi","map.r2d":"Akustik tayyorlangan, past shift, sayrayotgan piyolalar va gong polda. Faqat ovoz vannalari.","map.r3n":"Meditatsiya xonasi","map.r3d":"Kichik, qorong'i, loyiha bo'yicha derazasiz. Faqat yostiqlar. Guruhli meditatsiya va nafas.","map.r4n":"Muolaja xonasi","map.r4d":"Bir terapevt, bir stol. Davolovchi va Tay uslubidagi massaj. Yozilish bo'yicha.","map.r5n":"Vegetarian kafe <em>· ochiq</em>","map.r5d":"Studiya bilan ochiq. O'simlik tushliklari, dorivor choylar, kunning sho'rvasi. Kiring.","map.r6n":"Do'kon","map.r6d":"Kirishdagi kichik burchak — gilamlar, bloklar, moylar, parvarish, oddiy sport kiyimi.",
+
+    "visit.eyebrow":"Studiya",
+    "visit.title":"Mukimiy 1-tor 8A. <em>Har kuni ochiq.</em>",
+    "visit.hrsLabel":"Studiya soatlari","visit.hrsVal":"Har kuni · 07:00 — 22:00<br/>Kafe · 09:00 — 20:00",
+    "visit.phoneLabel":"Resepshn","visit.tgLabel":"Telegram","visit.emailLabel":"Pochta","visit.instaLabel":"Instagram","visit.addrLabel":"Manzil","visit.servicesLabel":"Binoda",
+    "visit.addr":"Mukimiy 1-tor 8A<br/>Yakkasaroy tumani · Toshkent",
+    "visit.services":"Yoga shala · ovoz kamerasi · meditatsiya · muolaja · vegetarian kafe · do'kon",
+    "visit.cardLabel":"— Sizning birinchi darsingiz —",
+    "visit.cardTitle":"Sekin Hatha, <em>shanba o'n bir.</em>",
+    "visit.cardBody":"Agar oldin amaliyot qilmagan bo'lsangiz — tavsiya etilgan birinchi dars shanba 11:00 dagi sekin Hatha. Mutlaq boshlovchilar uchun mo'ljallangan, Artha'ning eng katta o'qituvchisi tomonidan. Boshlanishidan o'n daqiqa oldin keling; gilam va bloklar beriladi.",
+    "visit.cardCta":"Birinchi darsga yozilish",
+    "visit.qb1":"Yil","visit.qb2":"Xona","visit.qb3":"447 sharh",
+
+    "final.eyebrow":"— Mukimiy'da tinch iliq xona —",
+    "final.title":"Bir soat. <em>Bir xona. Bir o'qituvchi.</em>",
+    "final.p":"Shanba kuni o'n birda sekin Hathaga yozilib qo'ying — qolganini biz hal qilamiz. Resepshn rus, o'zbek va ingliz tillarida javob beradi.",
+    "final.cta1":"+998 90 066 99 11","final.cta2":"hello@artha.uz",
+
+    "footer.aboutTitle":"— Artha","footer.about":"Toshkentning Yakkasaroy tumanidagi xolistik wellness-markaz. Yoga, ovoz, meditatsiya, vokal va raqs terapiyasi, vegetarian kafe, muolaja xonalari, do'kon. Mukimiy'da sakkiz yil.",
+    "footer.addrTitle":"— Manzil","footer.a1":"Mukimiy 1-tor 8A","footer.a2":"Yakkasaroy tumani","footer.a3":"Toshkent · O'zbekiston",
+    "footer.hrsTitle":"— Soatlar","footer.h1":"Har kuni · 07:00 — 22:00","footer.h2":"Kafe · 09:00 — 20:00","footer.h3":"Yozilish — 7 kun oldin",
+    "footer.contactTitle":"— Aloqa","footer.note":"Yandex 5,0 · 447 sharh · 6 xona"
+  }
+};
+
+const SUPPORTED = ['en','ru','uz'];
+function pickInitialLang(){
+  const saved = localStorage.getItem('artha_lang');
+  if (saved && SUPPORTED.includes(saved)) return saved;
+  const nav = (navigator.language || 'en').toLowerCase();
+  if (nav.startsWith('ru')) return 'ru';
+  if (nav.startsWith('uz')) return 'uz';
+  return 'en';
+}
+function applyLang(lang){
+  if (!SUPPORTED.includes(lang)) lang = 'en';
+  const dict = I18N[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] != null) el.textContent = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (dict[key] != null) el.innerHTML = dict[key];
+  });
+  if (lang === 'ru') document.title = 'Artha — Mind · Body · Soul · Wellness-центр Ташкент';
+  else if (lang === 'uz') document.title = "Artha — Mind · Body · Soul · Toshkent wellness-markazi";
+  else document.title = "Artha — Mind · Body · Soul · Wellness Centre, Tashkent";
+  document.querySelectorAll('.lang-switch button').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+  });
+  localStorage.setItem('artha_lang', lang);
+}
+document.querySelectorAll('.lang-switch button').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang')));
+});
+applyLang(pickInitialLang());
+document.getElementById('yr').textContent = new Date().getFullYear();
+const navBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+navBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.addEventListener('click', e => { if (e.target.tagName === 'A') navLinks.classList.remove('open'); });
+</script>
+
+<script type="module">
+  import { animate, stagger, inView, scroll } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  scroll(animate("#progressBar", { scaleX: [0, 1] }, { ease: "linear" }));
+
+  const nav = document.getElementById('nav');
+  const darkSections = document.querySelectorAll('.marquee-section, .schedule, .final-cta, .wordmark-section, footer');
+  const checkNavTheme = () => {
+    const navHeight = 80;
+    let isDark = false;
+    darkSections.forEach(s => {
+      const r = s.getBoundingClientRect();
+      if (r.top < navHeight && r.bottom > navHeight) isDark = true;
+    });
+    nav.classList.toggle('dark', isDark);
+  };
+  window.addEventListener('scroll', checkNavTheme, { passive: true });
+  checkNavTheme();
+
+  if (!reducedMotion) {
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+      const tmp = document.createElement('div');
+      tmp.innerHTML = heroTitle.innerHTML;
+      function wrapChars(node) {
+        const out = document.createDocumentFragment();
+        node.childNodes.forEach(child => {
+          if (child.nodeType === 3) {
+            child.textContent.split('').forEach(c => {
+              if (c === ' ') out.appendChild(document.createTextNode(' '));
+              else { const span = document.createElement('span'); span.className='ch'; span.style.display='inline-block'; span.style.willChange='transform, opacity'; span.textContent=c; out.appendChild(span); }
+            });
+          } else if (child.nodeType === 1) {
+            if (child.tagName === 'BR') out.appendChild(child.cloneNode(true));
+            else { const clone = child.cloneNode(false); clone.appendChild(wrapChars(child)); out.appendChild(clone); }
+          }
+        });
+        return out;
+      }
+      heroTitle.innerHTML = '';
+      heroTitle.appendChild(wrapChars(tmp));
+      animate(heroTitle.querySelectorAll('.ch'), { opacity: [0, 1], y: ['100%', '0%'] }, { delay: stagger(0.018, { startDelay: 0.2 }), type: 'spring', stiffness: 100, damping: 22 });
+    }
+
+    document.querySelectorAll('[data-anim="fade"]').forEach((el, i) => {
+      el.style.opacity = '0';
+      animate(el, { opacity: [0, 1], y: [16, 0] }, { duration: 0.85, ease: [0.2, 0.8, 0.2, 1], delay: 0.4 + i * 0.06 });
+    });
+
+    document.querySelectorAll('[data-counter]').forEach(el => {
+      const target = parseInt(el.getAttribute('data-counter').replace(/\s/g,''), 10);
+      const finalHTML = el.innerHTML;
+      animate(0, target, {
+        duration: 1.8, ease: [0.2, 0.8, 0.2, 1], delay: 0.7,
+        onUpdate: latest => { el.textContent = Math.floor(latest); },
+        onComplete: () => { el.innerHTML = finalHTML; }
+      });
+    });
+
+    const bigNum = document.querySelector('[data-counter-big]');
+    if (bigNum) {
+      const target = parseInt(bigNum.getAttribute('data-counter-big'), 10);
+      const finalHTML = bigNum.innerHTML;
+      let played = false;
+      inView(bigNum, () => {
+        if (played) return; played = true;
+        animate(0, target, { duration: 1.4, ease: [0.2, 0.8, 0.2, 1],
+          onUpdate: l => { bigNum.textContent = Math.floor(l); },
+          onComplete: () => { bigNum.innerHTML = finalHTML; }
+        });
+      }, { margin: "0px 0px -80px 0px" });
+    }
+
+    /* Hero ornament — gentle mouse-tracked drift */
+    const orn = document.getElementById('heroOrn');
+    if (orn) {
+      let mx = 0, my = 0;
+      document.addEventListener('mousemove', e => {
+        mx = (e.clientX / window.innerWidth - 0.5) * 18;
+        my = (e.clientY / window.innerHeight - 0.5) * 18;
+      });
+      function drift() { animate(orn, { x: mx, y: my }, { type: 'spring', stiffness: 24, damping: 20 }); }
+      setInterval(drift, 100);
+    }
+
+    /* Hero meta tags scroll parallax */
+    document.querySelectorAll('.hero-tag').forEach((el, i) => {
+      scroll(animate(el, { y: [0, -36 - i * 8] }, { ease: "linear" }), { target: document.querySelector(".hero"), offset: ["start start", "end start"] });
+    });
+
+    /* Marquee */
+    const track = document.getElementById('marqueeTrack');
+    if (track) {
+      const m = animate(track, { x: ["0%", "-50%"] }, { duration: 36, ease: "linear", repeat: Infinity });
+      track.parentElement.addEventListener('mouseenter', () => m.speed = 0.2);
+      track.parentElement.addEventListener('mouseleave', () => m.speed = 1);
+    }
+
+    /* Line reveals */
+    document.querySelectorAll('[data-anim="line"]').forEach(line => {
+      line.style.opacity = '0';
+      inView(line, () => { animate(line, { opacity: [0, 1], y: [18, 0] }, { duration: 0.85, ease: [0.2, 0.8, 0.2, 1] }); }, { margin: "0px 0px -120px 0px" });
+    });
+
+    /* 3D tilt — subtle for wellness */
+    document.querySelectorAll('[data-tilt]').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        animate(card, { rotateX: -y * 3, rotateY: x * 3, scale: 1.004 }, { type: 'spring', stiffness: 180, damping: 24 });
+      });
+      card.addEventListener('mouseleave', () => {
+        animate(card, { rotateX: 0, rotateY: 0, scale: 1 }, { type: 'spring', stiffness: 200, damping: 26 });
+      });
+    });
+
+    /* Magnetic */
+    const magBtn = document.getElementById('magneticBtn');
+    if (magBtn) {
+      const wrap = magBtn.parentElement;
+      wrap.addEventListener('mousemove', e => {
+        const rect = wrap.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width/2) * 0.4;
+        const y = (e.clientY - rect.top - rect.height/2) * 0.5;
+        animate(magBtn, { x, y }, { type: 'spring', stiffness: 150, damping: 16 });
+      });
+      wrap.addEventListener('mouseleave', () => { animate(magBtn, { x: 0, y: 0 }, { type: 'spring', stiffness: 200, damping: 20 }); });
+    }
+
+    /* Stagger reveals */
+    document.querySelectorAll('[data-stagger]').forEach(group => {
+      const items = Array.from(group.children);
+      items.forEach(it => { it.style.opacity = '0'; });
+      inView(group, () => {
+        animate(items, { opacity: [0, 1], y: [10, 0] }, { delay: stagger(0.05), duration: 0.5 });
+      }, { margin: "0px 0px -80px 0px" });
+    });
+
+    /* Practice cards reveal */
+    inView('.pr-grid', el => {
+      const items = Array.from(el.children);
+      items.forEach(it => { it.style.opacity = '0'; });
+      animate(items, { opacity: [0, 1], y: [16, 0] }, { delay: stagger(0.07), type: 'spring', stiffness: 100, damping: 22 });
+    }, { margin: "0px 0px -80px 0px" });
+
+    /* Wordmark */
+    inView('.wordmark', el => {
+      animate(el, { y: ["18%", "0%"], opacity: [0, 1] }, { duration: 1.1, ease: [0.2, 0.8, 0.2, 1] });
+    }, { margin: "0px 0px -80px 0px" });
+
+    /* Button press */
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('mousedown', () => animate(btn, { scale: 0.97 }, { duration: 0.08 }));
+      btn.addEventListener('mouseup', () => animate(btn, { scale: 1 }, { type: 'spring', stiffness: 380, damping: 18 }));
+      btn.addEventListener('mouseleave', () => animate(btn, { scale: 1 }, { duration: 0.15 }));
+    });
+  } else {
+    document.querySelectorAll('[data-anim], [data-anim="line"], [data-stagger]').forEach(el => { el.style.opacity = '1'; });
+    document.querySelectorAll('.pr-grid > *, .map-grid > *, .sched-table > *').forEach(el => { el.style.opacity = '1'; });
+  }
+</script>
+</body>
+</html>
